@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class DetailViewController: UIViewController {
     
@@ -19,13 +20,21 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var totalVotesLabel: UILabel!
     
-    @IBOutlet weak var descriptionLabel: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
+    var film: Film!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        Nuke.loadImage(with: film.artWorkUrl100, into: movieImageview)
+        
+        movieNameLabel.text = film.original_title
+        voteLabel.text = String(film.vote_average)
+        totalVotesLabel.text = String(film.vote_count)
+        descriptionLabel.text = film.overview
     }
     
 
