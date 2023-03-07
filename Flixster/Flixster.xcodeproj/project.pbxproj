@@ -16,6 +16,7 @@
 		E267FF3C29B6E4D500C2EBC7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267FF3B29B6E4D500C2EBC7 /* DetailViewController.swift */; };
 		E267FF3E29B6E50900C2EBC7 /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267FF3D29B6E50900C2EBC7 /* FilmViewController.swift */; };
 		E267FF4029B6E54D00C2EBC7 /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267FF3F29B6E54D00C2EBC7 /* FilmCell.swift */; };
+		E267FF4829B6FED100C2EBC7 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E267FF4729B6FED100C2EBC7 /* Nuke */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E267FF4829B6FED100C2EBC7 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +102,9 @@
 			dependencies = (
 			);
 			name = Flixster;
+			packageProductDependencies = (
+				E267FF4729B6FED100C2EBC7 /* Nuke */,
+			);
 			productName = Flixster;
 			productReference = E267FF1F29B6E20900C2EBC7 /* Flixster.app */;
 			productType = "com.apple.product-type.application";
@@ -128,6 +133,9 @@
 				Base,
 			);
 			mainGroup = E267FF1629B6E20900C2EBC7;
+			packageReferences = (
+				E267FF4629B6FED100C2EBC7 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = E267FF2029B6E20900C2EBC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -378,6 +386,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E267FF4629B6FED100C2EBC7 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E267FF4729B6FED100C2EBC7 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E267FF4629B6FED100C2EBC7 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E267FF1729B6E20900C2EBC7 /* Project object */;
 }

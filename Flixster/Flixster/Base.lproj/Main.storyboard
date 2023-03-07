@@ -20,12 +20,47 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="86" id="gVo-Hs-SfR">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="86"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilmCell" rowHeight="133" id="gVo-Hs-SfR" customClass="FilmCell" customModule="Flixster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gVo-Hs-SfR" id="6Do-f5-9mb">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="133"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LSl-uh-Fkx">
+                                                    <rect key="frame" x="16" y="16" width="358" height="101"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBm-1U-4JD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XFD-Ed-gpr">
+                                                            <rect key="frame" x="116" y="0.0" width="242" height="92.333333333333329"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6k2-GZ-zwn">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="26.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yDh-ld-dtc">
+                                                                    <rect key="frame" x="0.0" y="42.333333333333343" width="211" height="50"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                                    <color key="textColor" systemColor="labelColor"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                </textView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LSl-uh-Fkx" secondAttribute="trailing" constant="16" id="1qv-8y-Uhg"/>
+                                                <constraint firstItem="LSl-uh-Fkx" firstAttribute="top" secondItem="6Do-f5-9mb" secondAttribute="top" constant="16" id="eda-yx-qOq"/>
+                                                <constraint firstAttribute="bottom" secondItem="LSl-uh-Fkx" secondAttribute="bottom" constant="16" id="hpX-jA-vql"/>
+                                                <constraint firstItem="LSl-uh-Fkx" firstAttribute="leading" secondItem="6Do-f5-9mb" secondAttribute="leading" constant="16" id="i55-zv-gFl"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -41,9 +76,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Films" id="vl7-gj-AWh"/>
-                    <connections>
-                        <segue destination="aYO-tG-oU3" kind="show" id="xVv-Kf-ZNK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
