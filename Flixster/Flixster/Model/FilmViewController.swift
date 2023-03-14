@@ -8,6 +8,9 @@
 import UIKit
 
 class FilmViewController: UIViewController, UITableViewDataSource {
+    
+    let apiKey = "f86e05a30c0f1a238a35b0aaea814403"
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return films.count
     }
@@ -36,8 +39,45 @@ class FilmViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
         
         
-        tableView.dataSource = self
-        films = Film.mockFilms
+        //tableView.dataSource = self
+        //films = Film.mockFilms
+        
+        //Create a URL for the request
+        // In this case, the custom search URL you created in in part 1
+        let url = URL(string: "https://api.themoviedb.org/3/movie/550?api_key="+apiKey)!
+
+        // Use the URL to instantiate a request
+        let request = URLRequest(url: url)
+
+        // Create a URLSession using a shared instance and call its dataTask method
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+
+            // Handle any errors
+            if let error = error {
+                print("❌ Network error: \(error.localizedDescription)")
+            }
+
+            // Make sure we have data
+            guard let data = data else {
+                print("❌ Data is nil")
+                return
+            }
+
+            // The `JSONSerialization.jsonObject(with: data)` method is a "throwing" function (meaning it can throw an error) so we wrap it in a `do` `catch`
+            // We cast the resultant returned object to a dictionary with a `String` key, `Any` value pair.
+            do {
+                let jsonDictionary = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                print(jsonDictionary)
+            } catch {
+                print("❌ Error parsing JSON: \(error.localizedDescription)")
+            }
+        }
+
+        // Initiate the network request
+        task.resume()
+        
+        
     }
     
     
